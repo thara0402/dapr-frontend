@@ -26,7 +26,7 @@ $ az containerapp update -n dapr-frontend -g <ResourceGroup Name> -i thara0402/d
 ## Blue / Green Deploy for Azure Container Apps
 ```shell-session
 # Get Current Revison Name
-$ az containerapp revision list -g gooner1107 -n dapr-frontend --query "[].{Revision:name,Replicas:replicas,Active:active,Created:createdTime,FQDN:fqdn}" -o table
+$ az containerapp revision list -g <ResourceGroup Name> -n dapr-frontend --query "[].{Revision:name,Replicas:replicas,Active:active,Created:createdTime,FQDN:fqdn}" -o table
 
 # Deploy New Revision
 $ az containerapp update -n dapr-frontend -g <ResourceGroup Name> -i thara0402/dapr-frontend:0.2.0 --traffic-weight dapr-frontend--h2qwxun=100,latest=0
