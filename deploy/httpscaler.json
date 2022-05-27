@@ -1,7 +1,0 @@
-[{
-    "name": "http-scaling-rule",
-     "type": "http",
-    "metadata": {
-        "concurrentRequests": "10"
-    }
-}]
