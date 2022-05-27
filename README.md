@@ -21,7 +21,7 @@ $ az deployment group create -f ./deploy/app/main.bicep -g <ResourceGroup Name>
 
 ### Blue-Green Deployments
 Update main.bicep for version 2.
-```json
+```yaml
 param containerImage string = 'thara0402/dapr-frontend:0.2.0'
 param revisionSuffix string = 'v2'
 ```
