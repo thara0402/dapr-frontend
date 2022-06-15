@@ -9,7 +9,7 @@ $ docker push thara0402/dapr-frontend:0.1.0
 
 ## Create Azure Container Apps environment
 ```shell-session
-$ az group create -n <ResourceGroup Name> -l canadacentral
+$ az group create -n <ResourceGroup Name> -l japaneast
 $ az deployment group create -f ./deploy/env/main.bicep -g <ResourceGroup Name>
 ```
 
@@ -40,12 +40,7 @@ $ az containerapp revision deactivate -n dapr-frontend -g <ResourceGroup Name> -
 ## Dapr - Service to Service calls
 ### Create Azure Container Apps for frontend
 ```shell-session
-$ az containerapp create -n dapr-frontend -g <ResourceGroup Name> \
-     -e <Environment Name> -i thara0402/dapr-frontend:0.9.0 \
-     --ingress external --target-port 80 \
-     --revisions-mode single --scale-rules ./deploy/httpscaler.json \
-     --max-replicas 10 --min-replicas 1 \
-     --enable-dapr --dapr-app-id dapr-frontend --dapr-app-port 80
+$ az deployment group create -f ./deploy/app-dapr/main.bicep -g <ResourceGroup Name>
 ```
 ### Create Azure Container Apps for backend
 [Dapr Back-End Web Api](https://github.com/thara0402/dapr-backend)
